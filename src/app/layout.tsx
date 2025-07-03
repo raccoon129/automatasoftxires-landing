@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "AutomataSoft Xires",
-  description: "Soluciones tecnológicas personalizadas para equipos pequeños, comercios locales y emprendedores",
+  description: "Soluciones personalizadas para equipos pequeños, comercios locales y emprendedores",
 };
 
 export default function RootLayout({

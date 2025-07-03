@@ -6,12 +6,12 @@ import { Container, Row, Col } from 'react-bootstrap';
 const VideosSection = () => {
   // Datos de ejemplo para los videos
   const videos = [
-    { id: 1, titulo: 'Video Corporativo', tipo: 'Empresarial' },
-    { id: 2, titulo: 'Redes Sociales', tipo: 'Marketing' },
-    { id: 3, titulo: 'Tutorial Formativo', tipo: 'Educativo' },
-    { id: 4, titulo: 'Video Corporativo', tipo: 'Empresarial' }, // Repetir para loop
-    { id: 5, titulo: 'Redes Sociales', tipo: 'Marketing' },
-    { id: 6, titulo: 'Tutorial Formativo', tipo: 'Educativo' }
+    { id: 1, titulo: 'Video Corporativo', tipo: 'Empresarial', imagen: '/video1.jpg' },
+    { id: 2, titulo: 'Redes Sociales', tipo: 'Marketing', imagen: '/video2.jpg' },
+    { id: 3, titulo: 'Tutorial Formativo', tipo: 'Educativo', imagen: '/video3.jpg' },
+    { id: 4, titulo: 'Video Corporativo', tipo: 'Empresarial', imagen: '/video1.jpg' }, // Repetir para loop
+    { id: 5, titulo: 'Redes Sociales', tipo: 'Marketing', imagen: '/video2.jpg' },
+    { id: 6, titulo: 'Tutorial Formativo', tipo: 'Educativo', imagen: '/video3.jpg' }
   ];
 
   return (
@@ -68,35 +68,87 @@ const VideosSection = () => {
                     style={{
                       flex: '0 0 calc(100% / 6)',
                       height: '100%',
-                      background: 'var(--color-primary)',
                       margin: '0 10px',
                       borderRadius: '15px',
+                      position: 'relative',
+                      overflow: 'hidden',
+                      boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)'
+                    }}
+                  >
+                    {/* Imagen de fondo */}
+                    <img
+                      src={video.imagen}
+                      alt={video.titulo}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        position: 'absolute',
+                        top: 0,
+                        left: 0
+                      }}
+                      onError={(e) => {
+                        // Fallback si la imagen no existe
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        const parent = target.parentElement;
+                        if (parent) {
+                          parent.style.background = 'var(--color-primary)';
+                        }
+                      }}
+                    />
+                    
+                    {/* Overlay con contenido */}
+                    <div style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%)',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
                       justifyContent: 'center',
                       color: 'white',
                       padding: '20px'
-                    }}
-                  >
-                    <div style={{
-                      width: '80px',
-                      height: '80px',
-                      background: 'rgba(255,255,255,0.2)',
-                      borderRadius: '50%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      marginBottom: '15px'
                     }}>
-                      ▶
+                      {/* Botón de play */}
+                      <div style={{
+                        width: '60px',
+                        height: '60px',
+                        background: 'rgba(255,255,255,0.9)',
+                        borderRadius: '50%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        marginBottom: '15px',
+                        color: 'var(--color-primary)',
+                        fontSize: '1.5rem',
+                        boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
+                      }}>
+                        ▶
+                      </div>
+                      
+                      <h4 style={{ 
+                        fontSize: '1rem', 
+                        margin: '0 0 5px 0',
+                        textAlign: 'center',
+                        textShadow: '0 2px 4px rgba(0,0,0,0.5)'
+                      }}>
+                        {video.titulo}
+                      </h4>
+                      
+                      <span style={{ 
+                        fontSize: '0.8rem', 
+                        background: 'rgba(255,255,255,0.2)',
+                        padding: '4px 12px',
+                        borderRadius: '15px',
+                        backdropFilter: 'blur(10px)'
+                      }}>
+                        {video.tipo}
+                      </span>
                     </div>
-                    <h4 style={{ fontSize: '1rem', margin: '0 0 5px 0' }}>
-                      {video.titulo}
-                    </h4>
-                    <span style={{ fontSize: '0.8rem', opacity: '0.8' }}>
-                      {video.tipo}
-                    </span>
                   </div>
                 ))}
               </motion.div>
@@ -129,7 +181,12 @@ const VideosSection = () => {
                   alignItems: 'center'
                 }}
               >
-                {[1, 2, 1, 2].map((marca, index) => (
+                {[
+                  { id: 1, imagen: '/marca1.png', alt: 'Marca 1' },
+                  { id: 2, imagen: '/marca2.png', alt: 'Marca 2' },
+                  { id: 3, imagen: '/marca1.png', alt: 'Marca 1' },
+                  { id: 4, imagen: '/marca2.png', alt: 'Marca 2' }
+                ].map((marca, index) => (
                   <div
                     key={index}
                     style={{
@@ -138,12 +195,39 @@ const VideosSection = () => {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      fontSize: '1.5rem',
-                      fontWeight: '600',
-                      color: 'var(--color-primary)'
+                      padding: '20px'
                     }}
                   >
-                    Marca {marca}
+                    <img
+                      src={marca.imagen}
+                      alt={marca.alt}
+                      style={{
+                        maxHeight: '100%',
+                        maxWidth: '100%',
+                        objectFit: 'contain',
+                        filter: 'grayscale(100%)',
+                        transition: 'filter 0.3s ease'
+                      }}
+                      onError={(e) => {
+                        // Fallback si la imagen no existe
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        const parent = target.parentElement;
+                        if (parent) {
+                          parent.innerHTML = `<div style="
+                            font-size: 1.5rem;
+                            font-weight: 600;
+                            color: var(--color-primary);
+                          ">Marca ${(index % 2) + 1}</div>`;
+                        }
+                      }}
+                      onMouseOver={(e) => {
+                        (e.target as HTMLImageElement).style.filter = 'grayscale(0%)';
+                      }}
+                      onMouseOut={(e) => {
+                        (e.target as HTMLImageElement).style.filter = 'grayscale(100%)';
+                      }}
+                    />
                   </div>
                 ))}
               </motion.div>

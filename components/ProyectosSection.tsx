@@ -6,12 +6,12 @@ import { Container, Row, Col } from 'react-bootstrap';
 const ProyectosSection = () => {
   // Datos de ejemplo para los proyectos
   const proyectos = [
-    { id: 1, imagen: '/proyecto1.jpg', alt: 'Proyecto 1' },
-    { id: 2, imagen: '/proyecto2.jpg', alt: 'Proyecto 2' },
-    { id: 3, imagen: '/proyecto3.jpg', alt: 'Proyecto 3' },
-    { id: 4, imagen: '/proyecto1.jpg', alt: 'Proyecto 1' }, // Repetir para loop infinito
-    { id: 5, imagen: '/proyecto2.jpg', alt: 'Proyecto 2' },
-    { id: 6, imagen: '/proyecto3.jpg', alt: 'Proyecto 3' }
+    { id: 1, imagen: '/proyecto-video1.jpg', alt: 'Proyecto Video 1', titulo: 'Video Corporativo' },
+    { id: 2, imagen: '/proyecto-video2.jpg', alt: 'Proyecto Video 2', titulo: 'Redes Sociales' },
+    { id: 3, imagen: '/proyecto-video3.jpg', alt: 'Proyecto Video 3', titulo: 'Tutorial Educativo' },
+    { id: 4, imagen: '/proyecto-video1.jpg', alt: 'Proyecto Video 1', titulo: 'Video Corporativo' }, // Repetir para loop infinito
+    { id: 5, imagen: '/proyecto-video2.jpg', alt: 'Proyecto Video 2', titulo: 'Redes Sociales' },
+    { id: 6, imagen: '/proyecto-video3.jpg', alt: 'Proyecto Video 3', titulo: 'Tutorial Educativo' }
   ];
 
   return (
@@ -50,7 +50,7 @@ const ProyectosSection = () => {
                 marginBottom: '10px'
               }}
             >
-              ¿Tienes el contenido necesario?
+              ¿Tienes o quieres el contenido necesario?
             </motion.p>
             
             <motion.p
@@ -63,8 +63,8 @@ const ProyectosSection = () => {
                 lineHeight: '1.7'
               }}
             >
-              Con videos se entiende el público. Edición de video profesional, para redes sociales, 
-              formación, entretenimiento, o difundir una idea breve.
+              Con videos se entiende el público. Edición de video profesional para redes sociales, 
+              formación, entretenimiento, o difundir una idea breve. Consulta un presupuesto.
             </motion.p>
             
             <motion.p
@@ -112,18 +112,59 @@ const ProyectosSection = () => {
                     style={{
                       flex: '0 0 calc(100% / 6)', // 6 elementos ocupan el 200%
                       height: '100%',
-                      background: `linear-gradient(135deg, var(--color-primary), var(--color-accent))`,
                       margin: '0 10px',
                       borderRadius: '10px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: 'white',
-                      fontSize: '1.2rem',
-                      fontWeight: '600'
+                      position: 'relative',
+                      overflow: 'hidden',
+                      boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)'
                     }}
                   >
-                    Proyecto {(index % 3) + 1}
+                    {/* Imagen de fondo */}
+                    <img
+                      src={proyecto.imagen}
+                      alt={proyecto.alt}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        position: 'absolute',
+                        top: 0,
+                        left: 0
+                      }}
+                      onError={(e) => {
+                        // Fallback si la imagen no existe
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        const parent = target.parentElement;
+                        if (parent) {
+                          parent.style.background = `linear-gradient(135deg, var(--color-primary), var(--color-accent))`;
+                        }
+                      }}
+                    />
+                    
+                    {/* Overlay con información */}
+                    <div style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%)',
+                      display: 'flex',
+                      alignItems: 'flex-end',
+                      justifyContent: 'center',
+                      padding: '20px',
+                      color: 'white'
+                    }}>
+                      <span style={{
+                        fontSize: '1.2rem',
+                        fontWeight: '600',
+                        textAlign: 'center',
+                        textShadow: '0 2px 4px rgba(0,0,0,0.5)'
+                      }}>
+                        {proyecto.titulo}
+                      </span>
+                    </div>
                   </div>
                 ))}
               </motion.div>

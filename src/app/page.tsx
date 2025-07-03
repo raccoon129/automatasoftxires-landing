@@ -15,7 +15,7 @@ export default function Home() {
       <HeroSection />
       <RenovacionSection />
       <ProyectosSection />
-      <VideosSection />
+
       <ContactoSection />
       <FooterComponent />
     </div>

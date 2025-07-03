@@ -104,20 +104,7 @@ const NavbarComponent = () => {
               Proyectos
             </Nav.Link>
             
-            <Nav.Link 
-              href="#videos"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick('#videos');
-              }}
-              style={{ 
-                color: 'var(--color-text)',
-                fontWeight: '500',
-                transition: 'var(--transition)'
-              }}
-            >
-              Videos
-            </Nav.Link>
+
             
             <Nav.Link 
               as={Link} 

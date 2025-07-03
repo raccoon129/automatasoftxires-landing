@@ -21,20 +21,28 @@ const HeroSection = () => {
       <Container style={{ position: 'relative', zIndex: 10 }}>
         <Row className="justify-content-center text-center">
           <Col lg={8}>
-            <motion.h1
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               style={{
-                fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-                fontWeight: '800',
-                color: 'white',
                 marginBottom: '20px',
-                textShadow: '0 2px 10px rgba(0, 0, 0, 0.3)'
+              }}
+              whileHover={{ 
+                scale: 1.05,
+                transition: { duration: 0.3 }
               }}
             >
-              AutomataSoft Xires
-            </motion.h1>
+              <img 
+                src="/logo1.png" 
+                alt="AutomataSoft Xires Logo" 
+                style={{
+                  maxWidth: '100%',
+                  height: 'auto',
+                  filter: 'drop-shadow(0 2px 10px rgba(0, 0, 0, 0.3))'
+                }}
+              />
+            </motion.div>
             
             <motion.p
               initial={{ opacity: 0, y: 30 }}
@@ -57,12 +65,28 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="d-flex gap-3 justify-content-center flex-wrap"
             >
-              <a href="#servicios" className="btn-primary-custom">
+              <motion.a 
+                href="#servicios" 
+                className="btn-primary-custom"
+                whileHover={{ 
+                  scale: 1.05,
+                  backgroundColor: '#7a3b9d',
+                  transition: { duration: 0.2 }
+                }}
+              >
                 Ver Servicios
-              </a>
-              <a href="/contacto" className="btn-outline-custom">
+              </motion.a>
+              <motion.a 
+                href="/contacto" 
+                className="btn-outline-custom"
+                whileHover={{ 
+                  scale: 1.05,
+                  backgroundColor: 'rgb(255, 255, 255)',
+                  transition: { duration: 0.1 }
+                }}
+              >
                 Contactar
-              </a>
+              </motion.a>
             </motion.div>
           </Col>
         </Row>

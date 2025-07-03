@@ -67,7 +67,7 @@ const ContactoPage = () => {
                     lineHeight: '1.7',
                     marginBottom: '20px'
                   }}>
-                    En AutomataSoft Xires nos especializamos en crear soluciones tecnológicas 
+                    En AutomataSoft Xires nos especializamos en crear soluciones  
                     personalizadas para equipos pequeños, comercios locales y emprendedores individuales.
                   </p>
                   <p style={{
@@ -97,7 +97,7 @@ const ContactoPage = () => {
                          style={{ background: 'var(--color-gray-light)' }}>
                       <span style={{ fontSize: '1.2rem' }}>⚡</span>
                       <span style={{ fontWeight: '500', color: 'var(--color-text)' }}>
-                        Respuesta en menos de 24 horas
+                        Respuesta en menos de 48 horas
                       </span>
                     </div>
                   </Col>
@@ -106,7 +106,7 @@ const ContactoPage = () => {
                          style={{ background: 'var(--color-gray-light)' }}>
                       <span style={{ fontSize: '1.2rem' }}>🚀</span>
                       <span style={{ fontWeight: '500', color: 'var(--color-text)' }}>
-                        Proyectos desde 2 semanas
+                        Proyectos desde 4 semanas
                       </span>
                     </div>
                   </Col>
@@ -185,8 +185,8 @@ const ContactoPage = () => {
                         'Análisis completo de tus necesidades',
                         'Propuesta técnica detallada',
                         'Desarrollo con tecnologías modernas',
-                        'Soporte y mantenimiento incluido',
-                        'Capacitación para tu equipo'
+                        'Soporte y mantenimiento incluido*',
+                        'Capacitación para tu equipo*'
                       ].map((item, index) => (
                         <li key={index} style={{
                           padding: '10px 0',
@@ -212,20 +212,17 @@ const ContactoPage = () => {
                 </Card>
               </motion.div>
 
-              {/* Botón de regreso */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                className="text-center"
-              >
-                <Link 
-                  href="/" 
-                  className="btn-outline-custom text-decoration-none"
-                >
-                  ← Volver al inicio
-                </Link>
-              </motion.div>
+              <Card>
+                <Card.Body className="text-center p-4">
+                    <p>Sujeto a condiciones y cargos adicionales</p>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-light)' }}>
+                      * Soporte y mantenimiento incluido por 2 meses posterior a entrega del proyecto. 
+                      Capacitación para tu equipo disponible bajo solicitud y acuerdos adicionales. Sujeto a cambios.    
+                    </p>
+                </Card.Body>
+              </Card>
+
+
             </Col>
           </Row>
         </Container>

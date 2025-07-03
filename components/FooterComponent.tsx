@@ -23,7 +23,7 @@ const FooterComponent = () => {
               lineHeight: '1.6',
               opacity: '0.9' 
             }}>
-              Soluciones tecnológicas personalizadas para equipos pequeños, 
+              Soluciones personalizadas para equipos pequeños, 
               comercios locales y emprendedores individuales.
             </p>
           </Col>

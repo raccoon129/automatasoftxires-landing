@@ -36,7 +36,7 @@ const BackgroundSymbol = ({ type, top, left, size, delay = 0, reverse = false }:
         left,
         width: size,
         height: size,
-        opacity: 0.08,
+        opacity: 0.02,
         pointerEvents: 'none',
         zIndex: 1
       }}
