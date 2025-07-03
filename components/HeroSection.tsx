@@ -37,8 +37,8 @@ const HeroSection = () => {
               <Image 
                 src="/logo1.png" 
                 alt="AutomataSoft Xires Logo" 
-                width={300}
-                height={200}
+                width={800}
+                height={700}
                 style={{
                   maxWidth: '100%',
                   height: 'auto',
@@ -58,7 +58,7 @@ const HeroSection = () => {
                 marginBottom: '40px'
               }}
             >
-              Soluciones tecnológicas personalizadas para equipos pequeños, 
+              Soluciones personalizadas para equipos pequeños, 
               comercios locales y emprendedores individuales.
             </motion.p>
             
