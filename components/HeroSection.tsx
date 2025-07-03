@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Container, Row, Col } from 'react-bootstrap';
+import Image from 'next/image';
 import HeroBackground from './HeroBackground';
 
 const HeroSection = () => {
@@ -33,9 +34,11 @@ const HeroSection = () => {
                 transition: { duration: 0.3 }
               }}
             >
-              <img 
+              <Image 
                 src="/logo1.png" 
                 alt="AutomataSoft Xires Logo" 
+                width={300}
+                height={200}
                 style={{
                   maxWidth: '100%',
                   height: 'auto',

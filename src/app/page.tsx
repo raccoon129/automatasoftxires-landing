@@ -2,7 +2,6 @@ import NavbarComponent from '../../components/NavbarComponent';
 import HeroSection from '../../components/HeroSection';
 import RenovacionSection from '../../components/RenovacionSection';
 import ProyectosSection from '../../components/ProyectosSection';
-import VideosSection from '../../components/VideosSection';
 import ContactoSection from '../../components/ContactoSection';
 import FooterComponent from '../../components/FooterComponent';
 import BackgroundSymbols from '../../components/BackgroundSymbols';

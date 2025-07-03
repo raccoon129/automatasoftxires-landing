@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Container, Row, Col } from 'react-bootstrap';
+import Image from 'next/image';
 
 const VideosSection = () => {
   // Datos de ejemplo para los videos
@@ -76,16 +77,12 @@ const VideosSection = () => {
                     }}
                   >
                     {/* Imagen de fondo */}
-                    <img
+                    <Image
                       src={video.imagen}
                       alt={video.titulo}
+                      fill
                       style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                        position: 'absolute',
-                        top: 0,
-                        left: 0
+                        objectFit: 'cover'
                       }}
                       onError={(e) => {
                         // Fallback si la imagen no existe

@@ -11,7 +11,7 @@ interface SymbolProps {
   reverse?: boolean;
 }
 
-const BackgroundSymbol = ({ type, top, left, size, delay = 0, reverse = false }: SymbolProps) => {
+const BackgroundSymbol = ({ type, top, left, size, delay = 0 }: SymbolProps) => {
   const getSymbolPath = () => {
     if (type === 'plus') {
       return (

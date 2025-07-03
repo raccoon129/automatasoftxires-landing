@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Container, Row, Col } from 'react-bootstrap';
+import Image from 'next/image';
 
 const ProyectosSection = () => {
   // Datos de ejemplo para los proyectos
@@ -120,16 +121,12 @@ const ProyectosSection = () => {
                     }}
                   >
                     {/* Imagen de fondo */}
-                    <img
+                    <Image
                       src={proyecto.imagen}
                       alt={proyecto.alt}
+                      fill
                       style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                        position: 'absolute',
-                        top: 0,
-                        left: 0
+                        objectFit: 'cover'
                       }}
                       onError={(e) => {
                         // Fallback si la imagen no existe

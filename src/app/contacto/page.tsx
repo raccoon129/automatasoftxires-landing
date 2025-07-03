@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import Link from 'next/link';
 import NavbarComponent from '../../../components/NavbarComponent';
 import FooterComponent from '../../../components/FooterComponent';
 import BackgroundSymbols from '../../../components/BackgroundSymbols';
