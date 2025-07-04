@@ -72,30 +72,32 @@ const RenovacionSection = () => {
           </Col>
         </Row>
         
-        {/* Carrusel de proyectos */}
+        {/* Carrusel de proyectos optimizado */}
         <Row className="mt-5">
           <Col xs={12}>
-            <div style={{ 
-              overflow: 'hidden', 
-              position: 'relative',
-              height: '280px',
-              borderRadius: '15px'
-            }}>
+            <div 
+              className="carousel-container"
+              style={{ 
+                overflow: 'hidden', 
+                position: 'relative',
+                height: '280px',
+                borderRadius: '15px'
+              }}
+            >
               <div
+                className="carousel-track"
                 style={{
                   display: 'flex',
                   height: '100%',
-                  width: `${proyectos.length * 2 * 100}px`, // Ancho fijo para cada elemento
-                  animation: `marqueeScroll ${proyectos.length * 3}s linear infinite`,
-                  willChange: 'transform'
+                  width: 'fit-content',
                 }}
               >
-                {/* Duplicar proyectos para efecto marquee seamless */}
-                {[...proyectos, ...proyectos].map((proyecto, index) => (
+                {/* Primera copia de proyectos */}
+                {proyectos.map((proyecto) => (
                   <div
-                    key={`${proyecto.id}-${index}`}
+                    key={`a-${proyecto.id}`}
                     style={{
-                      flex: `0 0 380px`, // Ancho fijo para cada elemento
+                      flex: '0 0 380px',
                       height: '100%',
                       margin: '0 10px',
                       borderRadius: '12px',
@@ -104,7 +106,6 @@ const RenovacionSection = () => {
                       boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)'
                     }}
                   >
-                    {/* Imagen de fondo */}
                     <Image
                       src={proyecto.imagen}
                       alt={proyecto.nombre}
@@ -113,7 +114,6 @@ const RenovacionSection = () => {
                         objectFit: 'cover'
                       }}
                       onError={(e) => {
-                        // Fallback si la imagen no existe
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';
                         const parent = target.parentElement;
@@ -123,7 +123,73 @@ const RenovacionSection = () => {
                       }}
                     />
                     
-                    {/* Overlay con gradiente */}
+                    <div style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, transparent 100%)',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'flex-end',
+                      padding: '20px',
+                      color: 'white'
+                    }}>
+                      <h5 style={{ 
+                        fontSize: '1.1rem', 
+                        margin: '0 0 8px 0',
+                        fontWeight: '600',
+                        textShadow: '0 2px 4px rgba(0,0,0,0.5)'
+                      }}>
+                        {proyecto.nombre}
+                      </h5>
+                      
+                      <span style={{ 
+                        fontSize: '0.9rem', 
+                        background: 'rgba(255,255,255,0.2)',
+                        padding: '4px 12px',
+                        borderRadius: '15px',
+                        alignSelf: 'flex-start',
+                        backdropFilter: 'blur(10px)'
+                      }}>
+                        {proyecto.categoria}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+                
+                {/* Segunda copia para el loop infinito */}
+                {proyectos.map((proyecto) => (
+                  <div
+                    key={`b-${proyecto.id}`}
+                    style={{
+                      flex: '0 0 380px',
+                      height: '100%',
+                      margin: '0 10px',
+                      borderRadius: '12px',
+                      position: 'relative',
+                      overflow: 'hidden',
+                      boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)'
+                    }}
+                  >
+                    <Image
+                      src={proyecto.imagen}
+                      alt={proyecto.nombre}
+                      fill
+                      style={{
+                        objectFit: 'cover'
+                      }}
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        const parent = target.parentElement;
+                        if (parent) {
+                          parent.style.background = `linear-gradient(135deg, var(--color-primary), var(--color-accent))`;
+                        }
+                      }}
+                    />
+                    
                     <div style={{
                       position: 'absolute',
                       top: 0,
@@ -161,15 +227,25 @@ const RenovacionSection = () => {
                 ))}
               </div>
               
-              {/* Estilos CSS para la animación marquee */}
+              {/* Estilos CSS para la animación optimizada */}
               <style jsx>{`
-                @keyframes marqueeScroll {
+                .carousel-track {
+                  animation: loop 30s linear infinite;
+                  will-change: transform;
+                }
+                
+                @keyframes loop {
                   0% {
                     transform: translateX(0);
                   }
                   100% {
                     transform: translateX(-50%);
                   }
+                }
+                
+                /* Pausa la animación al pasar el ratón */
+                .carousel-container:hover .carousel-track {
+                  animation-play-state: paused;
                 }
               `}</style>
             </div>
