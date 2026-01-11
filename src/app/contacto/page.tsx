@@ -11,7 +11,7 @@ const ContactoPage = () => {
     <div style={{ position: 'relative', minHeight: '100vh', background: 'white' }}>
       <BackgroundSymbols />
       <NavbarComponent />
-      
+
       <main style={{ paddingTop: '100px', paddingBottom: '50px', position: 'relative', zIndex: 10 }}>
         <Container>
           <Row className="justify-content-center">
@@ -58,7 +58,7 @@ const ContactoPage = () => {
                 }}>
                   ¿Tienes una idea en mente?
                 </h2>
-                
+
                 <div className="mb-4">
                   <p style={{
                     fontSize: '1.2rem',
@@ -66,7 +66,7 @@ const ContactoPage = () => {
                     lineHeight: '1.7',
                     marginBottom: '20px'
                   }}>
-                    En AutomataSoft Xires nos especializamos en crear soluciones  
+                    En AutomataSoft Xires nos especializamos en crear soluciones
                     personalizadas para equipos pequeños, comercios locales y emprendedores individuales.
                   </p>
                   <p style={{
@@ -75,7 +75,7 @@ const ContactoPage = () => {
                     lineHeight: '1.7',
                     marginBottom: '40px'
                   }}>
-                    Desde aplicaciones web hasta sistemas de gestión, edición de video profesional 
+                    Desde aplicaciones web hasta sistemas de gestión, edición de video profesional
                     y automatización de procesos. Trabajamos contigo para hacer realidad tu visión digital.
                   </p>
                 </div>
@@ -84,8 +84,8 @@ const ContactoPage = () => {
                 <Row className="justify-content-center mb-5">
                   <Col md={4} className="mb-3">
                     <div className="d-flex align-items-center justify-content-center gap-2 p-3 rounded-pill"
-                         style={{ background: 'var(--color-gray-light)' }}>
-                      <span style={{ fontSize: '1.2rem' }}>💬</span>
+                      style={{ background: 'var(--color-gray-light)' }}>
+                      <span style={{ fontSize: '1.2rem' }}></span>
                       <span style={{ fontWeight: '500', color: 'var(--color-text)' }}>
                         Consultoría gratuita inicial
                       </span>
@@ -93,8 +93,8 @@ const ContactoPage = () => {
                   </Col>
                   <Col md={4} className="mb-3">
                     <div className="d-flex align-items-center justify-content-center gap-2 p-3 rounded-pill"
-                         style={{ background: 'var(--color-gray-light)' }}>
-                      <span style={{ fontSize: '1.2rem' }}>⚡</span>
+                      style={{ background: 'var(--color-gray-light)' }}>
+                      <span style={{ fontSize: '1.2rem' }}></span>
                       <span style={{ fontWeight: '500', color: 'var(--color-text)' }}>
                         Respuesta en menos de 48 horas
                       </span>
@@ -102,8 +102,8 @@ const ContactoPage = () => {
                   </Col>
                   <Col md={4} className="mb-3">
                     <div className="d-flex align-items-center justify-content-center gap-2 p-3 rounded-pill"
-                         style={{ background: 'var(--color-gray-light)' }}>
-                      <span style={{ fontSize: '1.2rem' }}>🚀</span>
+                      style={{ background: 'var(--color-gray-light)' }}>
+                      <span style={{ fontSize: '1.2rem' }}></span>
                       <span style={{ fontWeight: '500', color: 'var(--color-text)' }}>
                         Proyectos desde 4 semanas
                       </span>
@@ -113,8 +113,8 @@ const ContactoPage = () => {
 
                 {/* Botón de contacto principal */}
                 <div className="mb-5">
-                  <a 
-                    href="mailto:santana@axotl.org" 
+                  <a
+                    href="mailto:santana@axotl.org"
                     className="d-inline-flex align-items-center gap-3 text-decoration-none mb-3"
                     style={{
                       background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent))',
@@ -139,7 +139,7 @@ const ContactoPage = () => {
                     title="Enviar correo a santana@axotl.org"
                   >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                     </svg>
                     Escríbenos Ahora
                   </a>
@@ -161,7 +161,7 @@ const ContactoPage = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="mb-5"
               >
-                <Card 
+                <Card
                   className="border-0 mx-auto"
                   style={{
                     background: 'var(--color-gray-light)',
@@ -213,11 +213,11 @@ const ContactoPage = () => {
 
               <Card>
                 <Card.Body className="text-center p-4">
-                    <p>Sujeto a condiciones y cargos adicionales</p>
-                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-light)' }}>
-                      * Soporte y mantenimiento incluido por 2 meses posterior a entrega del proyecto. 
-                      Capacitación para tu equipo disponible bajo solicitud y acuerdos adicionales. Sujeto a cambios.    
-                    </p>
+                  <p>Sujeto a condiciones y cargos adicionales</p>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--color-text-light)' }}>
+                    * Soporte y mantenimiento incluido por 2 meses posterior a entrega del proyecto.
+                    Capacitación para tu equipo disponible bajo solicitud y acuerdos adicionales. Sujeto a cambios.
+                  </p>
                 </Card.Body>
               </Card>
 
